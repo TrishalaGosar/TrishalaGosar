@@ -1,0 +1,200 @@
+\documentclass[10pt,a4paper]{article}
+
+% Compile with: xelatex resume.tex
+\usepackage[margin=0in]{geometry}
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.geometric,positioning}
+\usepackage{xcolor}
+\usepackage{paracol}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+\setmainfont{TeX Gyre Heros}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{0pt}
+\setlist[itemize]{leftmargin=1.2em, topsep=2pt, itemsep=1pt, parsep=0pt}
+
+\definecolor{darkbg}{HTML}{10161A}
+\definecolor{nearblack}{HTML}{141A1F}
+\definecolor{purple}{HTML}{4F329D}
+\definecolor{violet}{HTML}{6B42B7}
+\definecolor{magenta}{HTML}{E15FD4}
+\definecolor{pink}{HTML}{FF6FAE}
+\definecolor{coral}{HTML}{FF8E67}
+\definecolor{orange}{HTML}{FFB15F}
+\definecolor{textblack}{HTML}{11131A}
+\definecolor{muted}{HTML}{6E6E78}
+\definecolor{rulegray}{HTML}{D5D5DD}
+\definecolor{sidewhite}{HTML}{F6F8FA}
+
+\newcommand{\sectiontitle}[2]{%
+  \vspace{4pt}\noindent\begin{tikzpicture}[baseline=(t.base)]
+    \node[circle, fill=purple, text=white, minimum size=0.44in] (i) {\small #1};
+    \node[anchor=west, text=purple, font=\Large\bfseries] (t) at ($(i.east)+(0.18,0)$) {#2};
+  \end{tikzpicture}\par\vspace{6pt}}
+
+\newcommand{\sidetitle}[1]{\vspace{12pt}{\color{magenta}\large\bfseries #1}\par\vspace{8pt}}
+\newcommand{\siderule}{\vspace{10pt}{\color{sidewhite!55}\rule{\linewidth}{0.5pt}}\vspace{2pt}}
+\newcommand{\tinycaps}[1]{{\fontsize{8.5}{10}\selectfont\bfseries #1}}
+\newcommand{\jobtitle}[3]{\textbf{#1}\hfill{\color{violet}\bfseries #3}\par{\color{textblack}\bfseries #2}\par\vspace{3pt}}
+\newcommand{\dotline}{\tikz[baseline=-.5ex]\draw[densely dotted, line width=.6pt, violet!45] (0,0)--(3.5,0);}
+\newcommand{\skilldots}[1]{\foreach \n in {1,...,8}{\ifnum\n>#1 \tikz\fill[sidewhite!35] (0,0) circle (2.6pt);\else\tikz\fill[{rgb,255:red,205;green,89;blue,210}] (0,0) circle (2.6pt);\fi\hspace{3.5pt}}}
+\newcommand{\contactrow}[2]{\begin{tikzpicture}[baseline=(txt.base)]\node[circle, fill=magenta!75, draw=white, line width=.25pt, text=nearblack, minimum size=0.28in] (ic) {\scriptsize #1};\node[anchor=west, text=white, font=\small] (txt) at ($(ic.east)+(0.12,0)$) {#2};\end{tikzpicture}\par\vspace{7pt}}
+\newcommand{\toolbox}[3]{\begin{minipage}[t]{0.29\linewidth}\centering\begin{tikzpicture}\node[rounded corners=4pt, draw=white!55, line width=.5pt, minimum width=.42in, minimum height=.42in, text=#2, font=\bfseries\Large] {#1};\end{tikzpicture}\par{\fontsize{6.8}{8}\selectfont #3}\end{minipage}}
+\newcommand{\highlight}[2]{\begin{tikzpicture}[baseline=(txt.base)]\node[text=orange, font=\small] (ic) {#1};\node[anchor=west, text=white, font=\small] (txt) at ($(ic.east)+(0.14,0)$) {#2};\end{tikzpicture}\par\vspace{9pt}}
+
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[white] (current page.south west) rectangle (current page.north east);
+  \shade[left color=darkbg, right color=nearblack] (current page.south west) rectangle ($(current page.north west)+(2.95in,0)$);
+  \fill[pink] (current page.north east) -- ++(-1.12in,0) -- ++(1.12in,-0.78in) -- cycle;
+  \fill[magenta] (current page.south east) -- ++(-0.92in,0) -- ++(0.92in,0.72in) -- cycle;
+  \foreach \x in {0.23,0.38,...,1.18}{\foreach \y in {10.3,10.48,...,11.0}{\fill[pink!55] ($(current page.south west)+(\x in,\y in)$) circle (0.8pt);}}
+\end{tikzpicture}
+
+\begin{minipage}[t][11.69in][t]{2.95in}
+\vspace{0.22in}\hspace{0.28in}\begin{minipage}{2.36in}
+\centering
+\begin{tikzpicture}
+  \node[regular polygon, regular polygon sides=6, minimum size=2.15in, rotate=30,
+        path picture={\shade[left color=coral,right color=magenta] (path picture bounding box.south west) rectangle (path picture bounding box.north east);
+        \node[text=white, font=\bfseries\large, align=center] at (path picture bounding box.center) {ADD\\PHOTO};}] {};
+\end{tikzpicture}
+\par\vspace{4pt}
+{\fontsize{31}{32}\selectfont\bfseries\color{white}TRISHALA}\par
+{\fontsize{31}{32}\selectfont\bfseries\color{coral}GO{\color{pink}SAR}}\par
+\vspace{8pt}
+{\color{white}\bfseries UX / PRODUCT DESIGNER}\par
+{\color{white}\tinycaps{SMART DEVICES \textbullet{} AI-DRIVEN EXPERIENCES}}\par
+{\color{white}\tinycaps{FRONTEND PROTOTYPING}}\par
+\vspace{16pt}\begin{tikzpicture}\shade[left color=orange,right color=violet] (0,0) rectangle (2.35in,1.2pt);\end{tikzpicture}
+
+\RaggedRight
+\sidetitle{CONTACT}
+\contactrow{\faEnvelope}{trishalagosar@gmail.com}
+\contactrow{\faPhone}{+91 7043379360}
+\contactrow{\faMapMarker*}{Noida, India}
+\contactrow{\faLink}{https://trishl.me/}
+\contactrow{\faLinkedinIn}{linkedin.com/in/trishala-gosar}
+\contactrow{\faGlobe}{Portfolio: trishl.me}
+\siderule
+\sidetitle{SKILLS}
+\begin{tabularx}{\linewidth}{@{}X r@{}}
+User Research & \skilldots{7}\\[4pt]
+Wireframing \& Prototyping & \skilldots{7}\\[4pt]
+Interaction Design & \skilldots{7}\\[4pt]
+Information Architecture & \skilldots{7}\\[4pt]
+Usability Testing & \skilldots{6}\\[4pt]
+Design Systems & \skilldots{6}\\[4pt]
+Workflow Design & \skilldots{5}\\[4pt]
+Strategy \& Problem Solving & \skilldots{5}
+\end{tabularx}
+\siderule
+\sidetitle{TOOLS \& TECHNOLOGIES}
+\toolbox{\faFigma}{pink}{Figma}\hfill\toolbox{X}{white}{Axure RP}\hfill\toolbox{Ps}{cyan}{Ps}\par\vspace{7pt}
+\toolbox{\faCode}{cyan}{VS Code}\hfill\toolbox{\faRobot}{white}{Cline (AI)}\hfill\toolbox{5}{coral}{HTML5}\par\vspace{7pt}
+\toolbox{\textasciitilde}{cyan}{Tailwind CSS}\hfill\mbox{}\hfill\mbox{}
+\siderule
+\sidetitle{EXPERTISE HIGHLIGHTS}
+\highlight{\faMagic}{AI-assisted UX \& Frontend Prototyping}
+\highlight{\faBrain}{Smart TV \& Appliance Ecosystem Design}
+\highlight{\faKeyboard}{Cross-platform Experience Design}
+\highlight{\faCommentDots}{Rapid Prototyping \& Design to Code}
+\highlight{\faNetworkWired}{Data-driven \& KPI-oriented Design}
+\vfill
+\centering\begin{tikzpicture}\shade[left color=magenta,right color=orange] (0,0) rectangle (1.9in,3pt);\end{tikzpicture}\vspace{0.22in}
+\end{minipage}
+\end{minipage}%
+\hfill
+\begin{minipage}[t][11.69in][t]{5.32in}
+\vspace{0.34in}\hspace{0.22in}\begin{minipage}{4.75in}
+\sectiontitle{\faUser}{SUMMARY}
+\begin{tikzpicture}[overlay]\fill[textblack] (-.18,.09) circle (2.2pt);\draw[rulegray] (-.18,.09)--(-.18,-.78);\end{tikzpicture}
+{\small UX/Product Designer with experience designing \textbf{smart TV, appliance, and cross-device experiences at Samsung SRI-D}. I combine user-centered design with AI-assisted prototyping and frontend skills to build intuitive, scalable and high-impact solutions. Passionate about exploring emerging technologies and crafting experiences that create measurable impact.}\par
+\vspace{12pt}{\color{rulegray}\rule{\linewidth}{0.6pt}}
+
+\sectiontitle{\faBriefcase}{EXPERIENCE}
+\begin{tikzpicture}[overlay]\draw[rulegray] (-.18,.02)--(-.18,-5.68);\foreach \y in {.02,-2.88,-3.88,-4.82,-5.58}{\fill[textblack] (-.18,\y) circle (2.1pt);}\end{tikzpicture}
+\jobtitle{UX / PRODUCT DESIGNER \quad \textbullet{} \quad SAMSUNG R\&D (SRI-D)}{}{Jul 2024 -- Present}
+{\color{violet}\bfseries AI Assistant for Education}\par
+\begin{itemize}\small
+\item Designed end-to-end UX flows for AI-powered education features across Samsung platforms.
+\item Conducted competitive analysis and translated insights into product improvements.
+\item Collaborated with cross-functional teams to align UX with business and technical goals.
+\item Developed UI components, iconography and scalable interaction patterns.
+\end{itemize}
+{\color{violet}\bfseries Smart TV \& Platform Ecosystem}\par
+\begin{itemize}\small
+\item Designed UX for live event management systems on Samsung TV platforms.
+\item Revamped infrastructure portals, improving data workflows and operational efficiency.
+\item Enhanced partner-facing artwork/content management systems for scalability \& usability.
+\item Contributed to Samsung TV Sports experience, structuring complex data (schedule, layout, media).
+\end{itemize}
+{\color{violet}\bfseries AI-assisted Frontend Prototyping}\par
+\begin{itemize}\small
+\item Built a fully functional frontend prototype for a 3rd-party tool in 5 days using AI-assisted workflows (Cline + VS Code).
+\item Implemented scalable UI using HTML and Tailwind CSS for rapid iteration.
+\item Bridged design and development by translating UX concepts into working interfaces.
+\end{itemize}
+\vspace{2pt}
+\jobtitle{UX RESEARCH \& AI DESIGN}{}{Jul 2023 -- Dec 2023}
+\begin{itemize}\small
+\item Conducted ethnographic research and contextual inquiry to uncover user insights.
+\item Explored Generative AI applications in UX and proposed innovative product directions.
+\item Designed interaction flows to reduce user effort and improve task efficiency.
+\end{itemize}
+\vspace{2pt}
+\jobtitle{GAMEPLAY \& NARRATIVE DESIGNER \quad \textbullet{} \quad CAMPFIRE STORIES {\tiny (PART-TIME)}}{}{Apr 2023 -- May 2024}
+\begin{itemize}\small
+\item Designed narrative structure and gameplay systems for episodic game experience.
+\item Created level flows, interaction mapping and progression systems.
+\item Collaborated on UI/UX design for game menus and player journeys.
+\end{itemize}
+\vspace{2pt}
+\jobtitle{CONCEPT DESIGNER \quad \textbullet{} \quad FLOWCHART}{}{Nov 2019 -- May 2020}
+\begin{itemize}\small
+\item Designed retail experiences and customer journeys for luxury brands.
+\item Created spatial and digital interaction concepts for in-store engagement.
+\end{itemize}
+\vspace{7pt}{\color{rulegray}\rule{\linewidth}{0.6pt}}
+
+\begin{minipage}[t]{0.47\linewidth}
+\sectiontitle{\faLightbulb}{RESEARCH \& INNOVATION}
+{\small\color{violet}\bfseries Research Paper -- Smart Appliances \& Gaming (Under Review)}\par
+{\small Explores interaction models and engagement patterns for gaming on smart appliances. Investigates opportunities for extending gaming experiences beyond traditional platforms.}\par\vspace{6pt}\dotline\par\vspace{6pt}
+{\small\color{violet}\bfseries Internal Hackathon -- AI Experience (AX) Concept}\par
+{\small Designed an AI-driven experience concept to improve user engagement and efficiency through personalization and adaptive interaction models.}
+\end{minipage}\hfill\begin{minipage}[t]{0.47\linewidth}
+\sectiontitle{\faUsers}{LEADERSHIP \& INITIATIVE}
+{\small\color{violet}\bfseries Culture Catalyst}\par
+{\small Active culture catalyst at Samsung SRI-D, driving engagement and collaboration.}\par\vspace{8pt}
+{\small\color{violet}\bfseries Host -- SRI-D All Employee Meet}\par
+{\small Hosted the SRI-D All Employee Meet on 6th April 2024.}\par\vspace{8pt}
+{\small\color{violet}\bfseries Event Host \& Organizer}\par
+{\small Regularly host and organize internal events, fostering a vibrant team culture.}
+\end{minipage}
+\vspace{10pt}{\color{rulegray}\rule{\linewidth}{0.6pt}}
+
+\begin{minipage}[t]{0.47\linewidth}
+\sectiontitle{\faTrophy}{ACHIEVEMENTS}
+{\small\color{violet}\bfseries Winner -- Samsung E.D.G.E. Season 7}\par
+{\small Gamification Strategy for engagement in subscription services.}\par\vspace{8pt}
+{\small\color{violet}\bfseries Research Contributor}\par
+{\small Indian Craft Interiors (Book Published)}
+\end{minipage}\hfill\begin{minipage}[t]{0.47\linewidth}
+\sectiontitle{\faGraduationCap}{EDUCATION}
+\begin{tikzpicture}[overlay]\draw[rulegray] (-.16,.02)--(-.16,-.83);\fill[textblack] (-.16,.02) circle (2pt);\fill[textblack] (-.16,-.56) circle (2pt);\end{tikzpicture}
+{\small\color{violet}\bfseries M.Des -- Digital Game Design}\par
+{\small National Institute of Design, Bangalore\par 2021 -- 2024}\par\vspace{7pt}
+{\small\color{violet}\bfseries B.Des -- Industrial Design}\par
+{\small Unitedworld Institute of Design\par 2014 -- 2018}
+\end{minipage}
+\end{minipage}
+\end{minipage}
+\end{document}
